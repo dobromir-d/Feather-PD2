@@ -2617,13 +2617,13 @@ function itemHover(ev, id) {
 		//name = equipped.charms[val].name
 		color = "Indigo"
 		if (name == "Annihilus" || name == "Hellfire Torch" || name == "Gheed's Fortune" || name == "Horadric Sigil") { color = "Gold" }
-		if (equipped["charms"][val].size != "small" && equipped["charms"][val].size != "large" && equipped["charms"][val].size != "grand") { color = "Red" }
+		if (equipped["charms"][val] && (equipped["charms"][val].size != "small" && equipped["charms"][val].size != "large" && equipped["charms"][val].size != "grand")) { color = "Red" }
 		lastCharm = name
-		if (equipped["charms"][val].size == "large") { height = 2; base = "<br>Large Charm"; }
-		else if (equipped["charms"][val].size == "grand") { height = 3; base = "<br>Grand Charm"; }
+		if (equipped["charms"][val] && (equipped["charms"][val].size == "large")) { height = 2; base = "<br>Large Charm"; }
+		else if (equipped["charms"][val] && equipped["charms"][val].size == "grand") { height = 3; base = "<br>Grand Charm"; }
 		else { base = "<br>Small Charm" }
 		if (name.substr(0,3) == "+1 " && height == 3) { name = name.substr(3) }
-		if (equipped["charms"][val].rarity == "magic" || equipped["charms"][val].debug == 1) { base = "" }
+		if (equipped["charms"][val] && (equipped["charms"][val].rarity == "magic" || equipped["charms"][val].debug == 1)) { base = "" }
 	} else {
 		if (type == "rune") { color = "Orange" }
 		else if (socketables[index].rarity == "unique") { color = "Gold" }
